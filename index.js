@@ -1,4 +1,5 @@
 require("dotenv").config();
+const cors = require("cors");
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3010;
@@ -11,6 +12,8 @@ const handler = async (req, res) => {
 
   res.json(result);
 };
+
+app.use(cors());
 
 app.get("/", handler);
 
